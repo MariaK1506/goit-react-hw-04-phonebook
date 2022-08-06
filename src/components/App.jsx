@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import { GlobalStyle } from './GlobalStyle';
 import { Container } from 'components/Container/Container';
@@ -7,7 +7,17 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
 
-export class App extends Component {
+export default function App() {
+  const [contacts, setContacts] = useState(() => {
+    return JSON.parse(window.localStorage.getItem(contacts) ?? '');
+  });
+  const [filter, setFilter] = useState('');
+
+  useEffect(() => {
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
+}
+export class OldApp extends Component {
   state = {
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -28,6 +38,7 @@ export class App extends Component {
       this.setState({ contacts: parsedContacts });
     }
   }
+  // переделано
 
   componentDidUpdate(prevProps, prevState) {
     // console.log('App componentDidUpdate');
