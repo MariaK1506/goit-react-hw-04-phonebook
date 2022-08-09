@@ -71,6 +71,10 @@ export default function ContactForm({ onSubmit }) {
   );
 }
 
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
 // handleNameChange = event => {
 //   console.log(event.currentTarget.value);
 //   this.setState({ name: event.currentTarget.value });
@@ -132,7 +136,3 @@ export default function ContactForm({ onSubmit }) {
 //     );
 //   }
 // }
-
-ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};

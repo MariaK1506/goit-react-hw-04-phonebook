@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-
 import { WrapperContainer } from './Container.styled';
 
 export const Container = ({ children }) => {

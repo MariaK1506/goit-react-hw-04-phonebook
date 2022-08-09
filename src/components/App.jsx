@@ -15,28 +15,15 @@ const DEFAULT_CONTACTS = [
 ];
 
 export default function App() {
-  // const isMounted = useRef(false);
-  const [contacts, setContacts] = useState(DEFAULT_CONTACTS);
-  // const [contacts, setContacts] = useState(() => {
-  //   return JSON.parse(window.localStorage.getItem('contacts'));
-  // });
+  const [contacts, setContacts] = useState(() => {
+    return (
+      JSON.parse(window.localStorage.getItem('contacts')) || DEFAULT_CONTACTS
+    );
+  });
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    const contacts = window.localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts);
-
-    if (parsedContacts) {
-      setContacts(parsedContacts);
-    }
-  }, []);
-
-  useEffect(() => {
-    // console.log(isMounted);
-    // if (isMounted) {
     window.localStorage.setItem('contacts', JSON.stringify(contacts));
-    // }
-    // isMounted.current = true;
   }, [contacts]);
 
   const changeFilter = event => {
