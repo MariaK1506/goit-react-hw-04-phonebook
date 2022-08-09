@@ -70,6 +70,7 @@ export default function ContactForm({ onSubmit }) {
     </Form>
   );
 }
+
 // handleNameChange = event => {
 //   console.log(event.currentTarget.value);
 //   this.setState({ name: event.currentTarget.value });
