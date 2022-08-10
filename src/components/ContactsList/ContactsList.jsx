@@ -3,15 +3,17 @@ import { ContactItem } from 'components/ContactItem/ContactItem';
 import { List } from './ContactsList.styled';
 
 export const ContactsList = ({ contacts, onDeleteContact }) => {
-  <List>
-    {contacts.map(contact => (
-      <ContactItem
-        key={contact.id}
-        contact={contact}
-        onDeleteContact={onDeleteContact}
-      />
-    ))}
-  </List>;
+  return (
+    <List>
+      {contacts.map(contact => (
+        <ContactItem
+          key={contact.id}
+          contact={contact}
+          onDeleteContact={onDeleteContact}
+        />
+      ))}
+    </List>
+  );
 };
 
 ContactsList.propTypes = {
