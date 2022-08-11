@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import { Form, Label, Input, Button } from './ContactForm.styled';
 
 export default function ContactForm({ onSubmit }) {
-  const nameInputId = nanoid();
-  const numberInputId = nanoid();
+  const nameInputId = useMemo(() => nanoid(), []);
+  const numberInputId = useMemo(() => nanoid(), []);
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
